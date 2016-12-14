@@ -12,15 +12,16 @@ public class AppSchema {
         GraphQLObjectType userType = GraphQLObjectType.newObject()
                 .name("User")
                 .description("A user")
-                .field(GraphQLFieldDefinition.newFieldDefinition().name("id").type(new GraphQLNonNull(Scalars.GraphQLLong)))
+                .field(GraphQLFieldDefinition.newFieldDefinition().name("id").type(new GraphQLNonNull(Scalars.GraphQLID)))
                 .field(GraphQLFieldDefinition.newFieldDefinition().name("name").type(Scalars.GraphQLString))
                 .field(GraphQLFieldDefinition.newFieldDefinition().name("lastName").type(Scalars.GraphQLString))
+                .field(GraphQLFieldDefinition.newFieldDefinition().name("sex").type(Scalars.GraphQLString))
                 .build();
 
         GraphQLObjectType queryType = GraphQLObjectType.newObject()
                 .name("QueryType")
                 .description("Main query to fetch data")
-                .field(GraphQLFieldDefinition.newFieldDefinition().name("user").type(userType).argument(GraphQLArgument.newArgument().name("id").type(new GraphQLNonNull(Scalars.GraphQLString)))
+                .field(GraphQLFieldDefinition.newFieldDefinition().name("user").type(userType).argument(GraphQLArgument.newArgument().name("id").type(new GraphQLNonNull(Scalars.GraphQLID)))
                         .dataFetcher(DataFetchers.userDataFetcher))
                 .build();
 

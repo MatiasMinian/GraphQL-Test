@@ -9,21 +9,11 @@ public class AppDataset {
 
     public static List<User> users = new ArrayList<>();
 
-    public AppDataset() {
-        initialize();
+    static {
+        users.add(new User(1, "Matias", "Minian", "Male"));
+        users.add(new User(2, "Fernando", "Pessina", "Male"));
+        users.add(new User(3, "Pablo", "Alice", "Male"));
+        users.add(new User(4, "Federico", "Fernandez", "Male"));
+        users.add(new User(5, "Andrea", "Gomez", "Female"));
     }
-
-
-    private void initialize() {
-        users.add(new User(1l, "Matias", "Minian"));
-        users.add(new User(2l, "Fernando", "Pessina"));
-    }
-
-
-
-
-
-
-
-
 }
